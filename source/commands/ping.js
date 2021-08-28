@@ -1,9 +1,14 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 module.exports = {
-    name: 'ping',
-    description: 'Ping!',
-    guildOnly: false,
     cooldown: 5,
-    execute(message, args) {
-        message.channel.send('Pong.');
-    },
+    data: new SlashCommandBuilder()
+            .setName('ping')
+            .setDescription('Responds with pong!'),
+    async execute(interaction) {
+        await interaction.reply({
+            content: 'Pong!',
+            ephemeral: true
+        })
+    }
 };

@@ -1,18 +1,14 @@
-const Discord = require('discord.js');
-const config = require('../../config.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 
 module.exports = {
-    name: 'about',
-    description: 'Provides information about this bot',
-    guildOnly: false,
-    execute(message, args) {
-        const embedReply = new Discord.MessageEmbed()
-            .setColor(config.embed.color)
-            .setThumbnail(config.embed.thumbnail)
-            .setTitle('Asshole Man')
-            .setDescription('Here to fuck shit up!')
-            .addField('See You Saturday', 'Don\'t make me call my asshole friends.');
-        
-        message.channel.send({embeds: [embedReply] });
-    },
+    data: new SlashCommandBuilder()
+        .setName('about')
+        .setDescription('Replies with information about this bot'),
+    async execute(interaction) {
+        await interaction.reply({
+            content: `I'm the asshole man and I'm here to fuck shit up! Don't make me call my asshole friends!`,
+            ephemeral: true
+        })
+    }
 };
