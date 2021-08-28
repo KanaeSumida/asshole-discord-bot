@@ -1,0 +1,21 @@
+{
+  "name": "needs-callouts-discord-bot",
+  "version": "0.0.1",
+  "description": "Discord bot for the Needs Callouts Free Company Discord server.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "Christopher Whitley (aka Kanae Sumida)",
+  "license": "MIT",
+  "devDependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "moment-timezone": "^0.5.33"
+  }
+}
