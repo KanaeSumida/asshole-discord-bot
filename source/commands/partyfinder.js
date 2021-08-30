@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 
 module.exports = {
+    global: false,
     data: new SlashCommandBuilder()
         .setName('partyfinder')
         .setDescription('Creates a new party finder event that people can sign up for')

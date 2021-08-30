@@ -5,13 +5,7 @@ const moment = require('moment-timezone');
 
 module.exports = {
     execute(client) {
-        console.log('updating clocks');
         const guild = client.guilds.fetch(config.guildid);
-        // const estChannel = guild.channels.fetch("815729186673131561");
-        // const cstChannel = guild.channels.fetch("815729295556739073");
-        // const mstChannel = guild.channels.fetch("815729373659136061");
-        // const pstChannel = guild.channels.fetch("815729434715357236");
-
         const timezones = [
             'America/New_York',
             'America/Chicago',

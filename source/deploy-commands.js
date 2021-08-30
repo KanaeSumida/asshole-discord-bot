@@ -6,12 +6,18 @@ const fs = require('fs');
 
 dotenv.config();
 
+const globalCommands = [];
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('js'));
 
 for(const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    commands.push(command.data.toJSON());
+    if(command.global) {
+        globalCommands.push(command.data.toJSON());
+    } else {
+        commands.push(command.data.toJSON());
+    }
+    // commands.push(command.data.toJSON());
 }
 
 // const commands = [
@@ -27,6 +33,11 @@ const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
         await rest.put(
             Routes.applicationGuildCommands(process.env.CLIENTID, process.env.GUILDID),
             { body: commands },
+        );
+
+        await rest.put(
+            Routes.applicationCommands(process.env.CLIENTID),
+            { body: globalCommands },
         );
 
         console.log('Successfully registered application commands.');

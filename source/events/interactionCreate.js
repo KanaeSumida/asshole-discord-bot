@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js');
+const config = require('../config.json');
+
 module.exports = {
     name: 'interactionCreate',
     async execute(interaction) {
@@ -12,8 +15,15 @@ module.exports = {
             await command.execute(interaction);
         } catch (error) {
             console.error(error);
+            const embed = new MessageEmbed()
+                .setColor('#f00')
+                .setTitle('Error')
+                .setDescription('There was an error executing your command')
+                .setThumbnail(config.embed.thumbnail)
+
             await interaction.reply({
-                content: 'There was an error while executing this command!',
+                embeds: [embed],
+                ephemeral: true
             })
         }
         
