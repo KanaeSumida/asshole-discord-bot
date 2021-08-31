@@ -6,7 +6,7 @@ const envLoader = require('./envloader.js');
 // ---------------------------------------------------------------
 //  Configure environment variables
 // ---------------------------------------------------------------
-envLoader.load(process.env.NODE_ENV);
+require('./envloader.js')(process.env.NODE_ENV);
 
 // ---------------------------------------------------------------
 //  Setup new instance of the discord client
