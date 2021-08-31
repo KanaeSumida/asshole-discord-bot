@@ -1,10 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
+
 const config = require('../config.json');
+const { commandStatus } = require('../utils/commandStatus.js');
 
 
 module.exports = {
-    global: true,
+    status: commandStatus.ENABLED,
     data: new SlashCommandBuilder()
         .setName('about')
         .setDescription('Replies with information about this bot'),

@@ -2,8 +2,9 @@
   "name": "needs-callouts-discord-bot",
   "version": "0.0.1",
   "description": "Discord bot for the Needs Callouts Free Company Discord server.",
-  "main": "main.js",
+  "main": "./main.js",
   "scripts": {
+    "startprod": "NODE_ENV=production clear && node deploy-commands.js && node main.js",
     "start": "node ."
   },
   "keywords": [],

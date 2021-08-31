@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const config = require('../config.json');
 const stringsanatize = require('../utils/stringsanatize.js');
 const discordReaction = require('../utils/discordreactions.js');
+const { commandStatus } = require('../utils/commandStatus.js');
 
 function commandBuilder(numOptional) {
     builder = new SlashCommandBuilder()
@@ -39,7 +40,7 @@ function commandBuilder(numOptional) {
 }
 
 module.exports = {
-    global: true,
+    status: commandStatus.ENABLED,
     data: commandBuilder(13),  
     async execute(interaction) {
         //  Put the choices inside of an array. This is kinda pointless i think

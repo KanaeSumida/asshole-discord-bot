@@ -1,8 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { commandStatus } = require('../utils/commandStatus.js');
 
 
 module.exports = {
-    global: false,
+    status: commandStatus.LOCALONLY,
     data: new SlashCommandBuilder()
         .setName('partyfinder')
         .setDescription('Creates a new party finder event that people can sign up for')

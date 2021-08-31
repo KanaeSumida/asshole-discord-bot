@@ -1,11 +1,12 @@
 const Discord  = require('discord.js');
 const fs = require('fs');
-const dotenv = require('dotenv');
+
+const envLoader = require('./envloader.js');
 
 // ---------------------------------------------------------------
 //  Configure environment variables
 // ---------------------------------------------------------------
-dotenv.config();
+envLoader.load(process.env.NODE_ENV);
 
 // ---------------------------------------------------------------
 //  Setup new instance of the discord client
@@ -42,21 +43,6 @@ for(const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-// //  Get a list of all directories located inside the commands directory
-// const commandDirs = fs.readdirSync('./commands');
-
-// //  Process each command directory
-// for (const folder of commandDirs) {
-//     //  Get a collection of all files within the command directory that end with .js only
-//     const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
-
-//     //  Process each command file
-//     for(const file of commandFiles) {
-//         const command = require(`./commands/${folder}/${file}`);
-//         client.commands.set(command.name, command);
-//         console.log(`Command Added: ${command.name}`);
-//     }
-// }
 
 // ---------------------------------------------------------------
 //  Setup event handling for the Discord Client
@@ -78,4 +64,3 @@ for(const file of eventFiles) {
 //  Log the Discord bot in, this starts the entire process
 // ---------------------------------------------------------------
 client.login(process.env.TOKEN);
-

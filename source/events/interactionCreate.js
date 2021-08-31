@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const config = require('../config.json');
+const confg = require('../config.json');
 
 module.exports = {
     name: 'interactionCreate',
