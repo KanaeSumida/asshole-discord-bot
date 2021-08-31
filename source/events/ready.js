@@ -2,11 +2,26 @@ const updateClocks = require('../utils/clockupdater.js');
 
 
 module.exports = {
+    /**
+     * The name of the event as called by discord.js
+     */
     name: 'ready',
+
+    /**
+     *  Determines if this event is executed only once.
+     */
     once: true,
+
+    /**
+     * Handles the execute of the 'interactionCreate' event
+     * @param {Message} interaction 
+     * @returns 
+     */
     execute(client) {
+        //  Output to console that the client is ready.
         console.log('Ready!');
 
+        //  Only update the clock channels if we are in a production environment
         if (process.env.NODE_ENV === 'producation') {
             //  Immediatly update the clocks
             updateClocks.execute(client);
@@ -24,6 +39,5 @@ module.exports = {
                 }, 1800000)
             }, offset * 60000);
         }
-
     },
 };

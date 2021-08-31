@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
+
 const config = require('../config.json');
 const stringsanatize = require('../utils/stringsanatize.js');
 const discordReaction = require('../utils/discordreactions.js');
@@ -40,8 +41,22 @@ function commandBuilder(numOptional) {
 }
 
 module.exports = {
+    /**
+     * The status of the command. @see commandStatus
+     */
     status: commandStatus.ENABLED,
+
+    /**
+     * Data that is sent to the Discord API that describes this slash
+     * command 
+     */
     data: commandBuilder(13),  
+
+    /**
+     * Handles the execution of this command when issued by a user on 
+     * discord.
+     * @param {Interaction} interaction 
+     */
     async execute(interaction) {
         //  Put the choices inside of an array. This is kinda pointless i think
         //  but i prefer working with it this way for now.

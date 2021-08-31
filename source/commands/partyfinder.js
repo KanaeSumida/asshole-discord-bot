@@ -1,9 +1,16 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder, SlashCommandStringOption } = require('@discordjs/builders');
 const { commandStatus } = require('../utils/commandStatus.js');
 
-
 module.exports = {
+    /**
+     * The status of the command. @see commandStatus
+     */
     status: commandStatus.LOCALONLY,
+
+    /**
+     * Data that is sent to the Discord API that describes this slash
+     * command 
+     */
     data: new SlashCommandBuilder()
         .setName('partyfinder')
         .setDescription('Creates a new party finder event that people can sign up for')
@@ -44,6 +51,12 @@ module.exports = {
             .addChoice('Mountain', 'mt')
             .addChoice('Central', 'ct')
             .addChoice('Pacific', 'pt')),
+
+    /**
+     * Handles the execution of this command when issued by a user on 
+     * discord.
+     * @param {Interaction} interaction 
+     */
     async execute(interaction) {
 
         const name = interaction.options.getString('name');
@@ -60,9 +73,5 @@ module.exports = {
             content: `Event created`,
             ephemeral: true
         });
-        // await interaction.reply({
-        //     content: `I'm the asshole man and I'm here to fuck shit up! Don't make me call my asshole friends!`,
-        //     ephemeral: true
-        // })
     }
 };

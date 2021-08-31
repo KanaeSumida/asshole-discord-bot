@@ -1,6 +1,11 @@
 const { prefix } = require('../config.json');
 const Discord = require('discord.js');
 
+/**
+ * Parses a string of quoted arguments into an array.
+ * @param {string} str 
+ * @returns 
+ */
 function parseQuotes(str = '') {
     let current = '';
     let arr = [];
@@ -26,7 +31,16 @@ function parseQuotes(str = '') {
 }
 
 module.exports = {
+    /**
+     * The name of the event as called by discord.js
+     */
     name: 'message',
+
+    /**
+     * Handles the execute of the 'interactionCreate' event
+     * @param {Message} interaction 
+     * @returns 
+     */
     execute(message) {
         //  If the message does not start with the bot prefix (found in config.json)
         //  or if the author of the message is recognized as a bot, we just ignore
@@ -131,8 +145,3 @@ module.exports = {
         }
     }
 }
-//  ---------------------------------------------------------------
-//  Executes every time a message is sent in a channel that the
-//  client can see, as well as any DMs that are sent directly to
-//  the client
-//  ---------------------------------------------------------------
