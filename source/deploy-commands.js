@@ -7,7 +7,7 @@ const { commandStatus } = require('./utils/commandStatus.js');
 const envLoader = require('./envloader.js');
 
 //  Load the correct environment varaibles based on the NODE_ENV
-envLoader.load(process.env.NODE_ENV);
+require('./envloader.js')(process.env.NODE_ENV);
 
 //  Holds all commands that we find
 const commands = [];
