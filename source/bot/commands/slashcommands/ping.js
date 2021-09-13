@@ -1,37 +1,40 @@
+'use strict';
+
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const config = require('../config.json');
-const { commandStatus } = require('../utils/commandStatus.js');
+const { EmbedConfig } = require('../../configs');
+const { CommandStatus } = require('../../enums');
 
 module.exports = {
     /**
      * The status of the command. @see commandStatus
      */
-    status: commandStatus.ENABLED,
+    status: CommandStatus.ENABLED,
 
     /**
      * Data that is sent to the Discord API that describes this slash
-     * command 
+     * command
      */
     data: new SlashCommandBuilder()
-            .setName('ping')
-            .setDescription('Responds with pong!'),
+        .setName('ping')
+        .setDescription('Responds with pong!'),
 
     /**
-     * Handles the execution of this command when issued by a user on 
+     * Handles the execution of this command when issued by a user on
      * discord.
-     * @param {Interaction} interaction 
+     * @param {Interaction} interaction
      */
     async execute(interaction) {
         const embed = new MessageEmbed()
-            .setColor(config.embed.color)
+            .setColor(EmbedConfig.colors.default)
             .setTitle('Ping!')
-            .setAuthor('Asshole Man', config.embed.thumbnail)
+            .setAuthor('Asshole Man', EmbedConfig.thumbnail)
             .setDescription('PONG!')
-            .setThumbnail(config.embed.thumbnail)
+            .setThumbnail(EmbedConfig.thumbnail);
+
         await interaction.reply({
             embeds: [embed],
-            ephemeral: true
-        })
-    }
+            ephemeral: true,
+        });
+    },
 };

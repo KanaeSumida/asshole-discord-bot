@@ -1,0 +1,82 @@
+# Always include parenthesis arond a sole arrow function. Example '(x) => x';
+arrowParens: "always"
+
+# Print spaces between brackets
+bracketSpacing: true
+
+# Print (to stderr) where a cursor at the given position would move to after formatting.
+# This option can be used with --range-start and --range-end
+cursorOffset: -1
+
+# Control how Prettier formats quoted code embedded in the file.
+embeddedLanguageFormatting: "auto"
+
+# Which end of line characters to apply
+endOfLine: "lf"
+
+# Specify the input filepath.  This will be used to do parser inference
+# filePath: ""
+
+# How to handle whitespaces in HTML
+# htmlWhitespaceSensitivity: css
+
+# Insert @format pragma into file's first docblock comment
+insertPragma: false
+
+# Put > on the last line instead of at a new line
+jsxBracketSameLine: false
+
+# Use single quotes in JSX
+jsxSingleQuote: false
+
+# Which parser to use
+# parser:
+
+# Custom directory that contains prettier plugins in node_modules subdirectory
+# Overrides default behavior when plugins are searched relatively to the location
+# of Prettier.  Mutliple values are accepted
+# pluginSearchDir:
+
+# Add a plugin. Multiple plugins can be passed as seperate '--plugin';s
+# plugins: 
+
+# The line length where prettier will try wrap
+printWidth: 80
+
+# How to wrap prose
+proseWrap: "preserve"
+
+# Change when properties in objects are quoted
+quoteProps: "as-needed"
+
+# Format code ending at a given character offset (exclusive)
+# The range will extend forwards to the end of the selected statement.
+# This option cannot be used with --cursor-offset
+# rangeEnd: null
+
+# Format code starting at a given character offset.
+# The range will extend backwards to the start of the selected statement.
+# This option cannot be used with --cursor-ofset
+# rangeStart: 0
+
+# Requier either '@prettier' or '@format' to be present in the file's first
+# docblock comment in order for it to be formatted
+pragma: false
+
+# Print semicolon
+semi: true
+
+# Use single quotes instead of double quotes
+singleQuote: true
+
+# Number of spaces per indention level
+tabWidth: 4
+
+# Print trailing commas wherever possible when multi-line
+trailingComma: "es5"
+
+# Indent with tabs instead of spaces
+useTabs: false
+
+# Indent script and style tags in Vue files
+# vueIndentScriptAndStyle: false

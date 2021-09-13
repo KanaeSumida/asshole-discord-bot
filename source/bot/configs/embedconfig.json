@@ -1,0 +1,9 @@
+{
+    "thumbnail": "https://cdn.discordapp.com/attachments/824038134165274675/880675866045866047311943/yeti-logo.png",
+    "author": "Asshole Man",
+    "colors": {
+        "default": "#379c6f",
+        "warning": "#ffc107",
+        "danger": "#dc3545"
+    }
+}
