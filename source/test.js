@@ -1,4 +1,4 @@
-const reactions = require('./utils/discordreactions.js');
-const stringsanatize = require('./utils/stringsanatize.js');
+const envLoader = require('./envloader');
 
-console.log(stringsanatize.execute('This is a \n string'));
+envLoader.load(process.env.NODE_ENV);
+console.log(process.env.TOKEN);
