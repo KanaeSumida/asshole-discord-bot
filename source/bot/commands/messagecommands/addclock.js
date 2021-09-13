@@ -1,7 +1,7 @@
 'use strict';
 
-import { EmbedConfig } from '../../configs';
-import { MessageEmbed, Permissions } from 'discord.js';
+const { EmbedConfig } = require('../../configs');
+const { MessageEmbed, Permissions } = require('discord.js');
 const db = require('../../db');
 
 module.exports = {

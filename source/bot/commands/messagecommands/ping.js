@@ -14,8 +14,6 @@ module.exports = {
         embed.setTitle('Pong');
         embed.setDescription('Was a game');
 
-        throw 'Throwing an error on purpose';
-
         return message.reply({
             embeds: [embed],
             ephimeral: true,

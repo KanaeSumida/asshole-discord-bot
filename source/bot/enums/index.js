@@ -1,5 +1,5 @@
 'use strict';
 
-module.export = {
-    CommandStatus: require('./commandstatus.js');
+module.exports = {
+    CommandStatus: require('./commandstatus.js')
 }

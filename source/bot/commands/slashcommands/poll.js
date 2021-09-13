@@ -17,9 +17,7 @@ function commandBuilder(numOptional) {
         .addStringOption((option) =>
             option
                 .setName('question')
-                .setDescription(
-                    'The question you would like to ask for the poll'
-                )
+                .setDescription('The question you would like to ask for the poll')
                 .setRequired(true)
         )
 
@@ -110,16 +108,14 @@ module.exports = {
         embed.setColor(EmbedConfig.colors.default);
 
         if (member) {
-            const nickname = member.nickname
-                ? member.nickname
-                : member.displayName;
+            const nickname = member.nickname ? member.nickname : member.displayName;
             if (member.user) {
                 embed.setAuthor(nickname, member.user.avatarURL());
             } else {
                 embed.setAuthor(nickname);
             }
         } else {
-            embed.setAuthor('Asshole Man', EmbedConfig.thumbnail);
+            embed.setAuthor(EmbedConfig.author, EmbedConfig.thumbnail);
             embed.setThumbnail(EmbedConfig.thumbnail);
         }
 
@@ -128,10 +124,12 @@ module.exports = {
 
         embed.addField('The following choices are available', choiceField);
 
-        embed.addField(
-            'How to vote?',
-            'To vote in this poll, click on teh reaction to this post that matches your answer.  You may submit multiple votes'
-        );
+        embed.addField({
+            name: 'How to vote?',
+            value: 'To vote in this poll, click on the reaction to this post that matches your answer.  You may submit multiple votes.',
+            inline: false
+        });
+        
         const message = await interaction.reply({
             embeds: [embed],
             fetchReply: true,

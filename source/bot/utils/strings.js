@@ -4,7 +4,7 @@ module.exports = {
     /**
      * Given a String, removes all new line (\n) and carraige return (\r)
      * symbols and returns it back.
-     * @param {String} str 
+     * @param {String} str
      * @returns A String
      */
     removeNewLines(str) {
@@ -14,7 +14,7 @@ module.exports = {
     /**
      * Given a sring that contains quoted arguments, parses each seperate
      * argument into an array and returns the array.
-     * @param {String} str 
+     * @param {String} str
      * @returns An Array of all arguments parsed from the given String.
      */
     parseQuotes(str = '') {
@@ -31,13 +31,15 @@ module.exports = {
             if (char === '"') {
                 //  Current character is a " quote, so we flip the inQuotes flag.
                 inQuotes = !inQuotes;
-            } else if (char === ' ' && !inQuotes) {
+            }
+            else if (char === ' ' && !inQuotes) {
                 //  Current character is a space and we are not inside quotes
                 //  so this means the string is built, and we push it to the
                 //  array.
                 arr.push(current);
                 current = '';
-            } else {
+            }
+            else {
                 //  Otherwise add the character to the current string.
                 current += char;
             }
@@ -48,5 +50,5 @@ module.exports = {
 
         //  Return the array result.
         return arr;
-    }
-}
+    },
+};

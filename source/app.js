@@ -4,10 +4,8 @@ const Bot = require('./bot');
 const envLoader = require('./envloader.js');
 const clockUpdater = require('./utils/clockupdater.js');
 
-
 //  Load environment variables
 envLoader.load(process.env.NODE_ENV);
-
 
 //  Setup database stuff
 const db = require('./db');
@@ -17,11 +15,12 @@ const db = require('./db');
 
 // await db.sequelize.sync();
 
-db.clock_channel.findAll()
-    .then(result => console.log(result.channel_id))
-    .catch(error => console.log(error));
+db.clock_channel
+    .findAll()
+    .then((result) => console.log(result.channel_id))
+    .catch((error) => console.log(error));
 
-// //  Store the database instance on the bot itself so it can be accessed 
+// //  Store the database instance on the bot itself so it can be accessed
 // //  by the various commands
 // Bot.db = db;
 
@@ -29,7 +28,6 @@ db.clock_channel.findAll()
 // Bot.once('ready', async () => {
 //     //  Update Clocks immediatly
 //     clockUpdater(db, Bot);
-
 
 //     const mins = new Date().getMinutes();
 //     const minsToWait = 30;
