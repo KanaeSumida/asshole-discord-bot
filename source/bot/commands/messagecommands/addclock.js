@@ -2,7 +2,6 @@
 
 const { EmbedConfig } = require('../../configs');
 const { MessageEmbed, Permissions } = require('discord.js');
-const db = require('../../db');
 
 module.exports = {
     /**
