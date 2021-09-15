@@ -83,7 +83,7 @@ module.exports = {
 
         //  Next check if the comamnd requires arguments and that the arguments were
         //  actually given
-        if (command.args && !args.length) {
+        if (command.args && args.length !== command.args) {
             const embed = new MessageEmbed()
                 .setColor(EmbedConfig.color.danger)
                 .setThumbnail(EmbedConfig.thumbnail)

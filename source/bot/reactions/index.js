@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-    Symbolreactions: require('./symbols.js'),
+    SymbolReactions: require('./symbols.js'),
 }

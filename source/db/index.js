@@ -7,6 +7,8 @@ const env = process.env.NODE_ENV || 'development';
 //  Resolve the fully-qualified path name to the database storage file.
 const storage = path.resolve(__dirname, `${env.toLowerCase()}.db`);
 
+console.log(`Storage: ${storage}`);
+
 
 module.exports = {
     /**
